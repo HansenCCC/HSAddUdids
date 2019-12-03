@@ -1,0 +1,66 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "注册手机udid到指定AppId账号"
+  lane :addUdids do |option|
+      #接收到的所有参数
+      puts "接收到的所有参数 #{option}"
+      udidsStr = option[:udids]
+      username = option[:appleid]
+      if option.keys.size>0
+         #字符串 -> 数组
+         udidsArray = udidsStr.split(",")
+         puts "需要添加的udid集合 #{udidsArray}"
+         #数组 -> 字典（hash）
+         udidsDic = {}
+         for tmpUdid in udidsArray do
+            tmpDic = {tmpUdid => tmpUdid}
+            udidsDic = udidsDic.merge tmpDic
+         end
+         puts udidsDic
+         #添加udid
+         register_devices(
+           devices:udidsDic,
+           username: username
+         )
+      elsif
+         puts "⚠️ ⚠️ ⚠️  udids集合为空  ⚠️ ⚠️ ⚠️"
+      end
+  end
+ 
+  before_all  do |options|
+     puts "🚀🚀🚀 fastlane 初始化准备执行 🚀🚀🚀"
+  end
+  
+  before_each  do |options|
+     puts "🚀🚀🚀 lane #{options}初始化准备执行 🚀🚀🚀"
+  end
+  
+  after_each  do |options|
+     puts "🚀🚀🚀 lane #{options}执行完成 🚀🚀🚀"
+  end
+  
+  after_each  do |options|
+     puts "🚀🚀🚀 fastlane 完成执行 🚀🚀🚀"
+  end
+  
+  error  do |options|
+     puts "⚠️ ⚠️ ⚠️  lane #{options}出现错误  ⚠️ ⚠️ ⚠️"
+  end
+
+end
