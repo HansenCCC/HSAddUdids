@@ -45,6 +45,6 @@ sh add_udids.sh 6f1b77ce2ff2cd5672734e00facbe97f305f9ddb 6f1b77ce2ff2cd5672734e0
 ------------
 
 
-**Created by 程恒盛 on 2019/12/3.
-Copyright © 2019 力王. All rights reserved.
-QQ:2534550460@qq.com  GitHub:https://github.com/HansenCCC  tel:13767141841**
+## Created by 程恒盛 on 2019/12/3.
+## Copyright © 2019 力王. All rights reserved.
+## QQ:2534550460@qq.com  GitHub:https://github.com/HansenCCC  tel:13767141841
