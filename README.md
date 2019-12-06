@@ -37,7 +37,7 @@ sh add_udids.sh 6f1b77ce2ff2cd5672734e00facbe97f305f9ddb 6f1b77ce2ff2cd5672734e0
 #### [搭建 超级签 详细攻略](https://blog.csdn.net/LiaoQuesg/article/details/101219984  "搭建 超级签 详细攻略")
 #### [自动化打包---打包上传App Store Connect](https://www.jianshu.com/p/16e0d9b8e7ca "自动化打包---打包上传App Store Connect")
 #### [fastlane/spaceship/docs/DeveloperPortal.md](https://github.com/fastlane/fastlane/blob/master/spaceship/docs/DeveloperPortal.md "fastlane/spaceship/docs/DeveloperPortal.md")
-#### [从创建证书到上传到App Store](https://www.jianshu.com/p/db52889f20d0 Fastlane "从创建证书到上传到App Store")
+#### [从创建证书到上传到App Store](https://www.jianshu.com/p/db52889f20d0 "Fastlane从创建证书到上传到App Store")
 #### [记一次设置Fastlane支持苹果双重认证的过程](https://www.jianshu.com/p/665efd203259 "记一次设置Fastlane支持苹果双重认证的过程") https://www.jianshu.com/u/deffd9740b0b jcYang超仔
 ***
 
