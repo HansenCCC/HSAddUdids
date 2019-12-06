@@ -1,7 +1,7 @@
 # HSAddUdids
 超级签名中最重要的一步：跳过双重认证，自动化脚本添加udid并下载描述文件
 
-<img src="https://raw.githubusercontent.com/HansenCCC/HSAddUdids/master/%E6%95%88%E6%9E%9C%E5%9B%BE.png"  width="220">
+<img src="https://raw.githubusercontent.com/HansenCCC/HSAddUdids/master/%E6%95%88%E6%9E%9C%E5%9B%BE.png"  width="400">
 
 ## 运行环境
 ### 编译系统：苹果Mac
