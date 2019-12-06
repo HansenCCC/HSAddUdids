@@ -36,12 +36,98 @@ platform :ios do
          #添加udid
          register_devices(
            devices:udidsDic,
-           username: username
+           username: username,
          )
       elsif
          puts "⚠️ ⚠️ ⚠️  udids集合为空  ⚠️ ⚠️ ⚠️"
       end
   end
+
+
+  #sign使用参考https://docs.fastlane.tools/actions/sigh/
+  desc "下载provisioning_profile，不存在的bundleid和certificates自动新建并下载"
+  lane :downloadsProfile do |option|
+      #接收到的所有参数
+      puts "接收到的所有参数 #{option}"
+      bundleid = option[:bundleid] #bundleid
+      username = option[:appleid] #Apple ID用户名
+      name = option[:name] #Apple Developer Portal上使用的配置文件的名称
+      cer = option[:cer] #0证书已经表示存在 1表示不存在
+      mobileprovision = option[:mobileprovision] #0描述文件已经表示存在 1表示不存在
+      #如果没有在Apple Developer创建证书的话，get_certificates会帮你自动创建证书
+      puts "cer=#{cer}"
+      puts "mobileprovision=#{mobileprovision}"
+      if cer.to_i == 1
+      	 get_certificates(
+           username: username,
+           #keychain_password: "123",
+         )
+      else
+         puts "certificates已存在，跳过创建步骤"
+      end
+         
+      #在开发者账号创建appid（此方法待优化，比较耗时）
+      if mobileprovision.to_i == 1
+	    produce(
+               username:username,
+	       app_identifier: bundleid,
+               app_name: bundleid,
+            )
+      else
+	 puts "mobileprovision已存在，跳过创建步骤"
+      end
+      initError = ""
+      if bundleid==nil
+         initError = "⚠️ ⚠️ ⚠️  bundleid(bundleid)为空，请补充  ⚠️ ⚠️ ⚠️"
+      elsif username==nil
+         initError = "⚠️ ⚠️ ⚠️  appleid(Apple ID用户名)为空，请补充  ⚠️ ⚠️ ⚠️"
+      elsif name==nil
+         initError = "⚠️ ⚠️ ⚠️  name(配置文件名称)为空，请补充  ⚠️ ⚠️ ⚠️"
+      else
+         puts "参数获取正常"
+      end
+      if initError.length==0
+         sigh(
+              username:username,
+              app_identifier: bundleid,
+              force: true,
+              provisioning_name: name,
+              ignore_profiles_with_different_name: true,
+              adhoc: true,
+         )
+      else
+         puts initError
+      end
+  end
+
+  desc "单纯下载provisioning_profile，不存在的bundleid自动新建并下载（已废弃）"
+  lane :adhoc_profile do |option|
+      #接收到的所有参数
+      puts "接收到的所有参数 #{option}"
+      bundleid = option[:bundleid] #bundleid
+      username = option[:appleid] #Apple ID用户名
+      name = option[:name] #Apple Developer Portal上使用的配置文件的名称
+      get_provisioning_profile(
+         username:username,
+      	 adhoc: true,
+      	 force: true,
+      	 filename: "name.mobileprovision",
+         app_identifier: bundleid,
+      )
+  end
+
+    lane :test do |option|
+      #接收到的所有参数
+      puts "接收到的所有参数 #{option}"
+      bundleid = option[:bundleid] #bundleid
+      username = option[:appleid] #Apple ID用户名
+      name = option[:name] #Apple Developer Portal上使用的配置文件的名称
+      puts "请输入版本描述："
+      desc = STDIN.gets
+      puts "开始打包 #{desc}"
+  end
+
+
  
   before_all  do |options|
      puts "🚀🚀🚀 fastlane 初始化准备执行 🚀🚀🚀"
