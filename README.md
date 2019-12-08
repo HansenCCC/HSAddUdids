@@ -6,7 +6,7 @@
 ## 运行环境
 ### 编译系统：苹果Mac
 ### 编译系统版本：MacOS Catalina 10.15.1
-### 需要终端环境：：fastlane、ruby、cocoapods 需要安装APP：Xcode
+### 需要终端环境：fastlane、ruby、cocoapods 需要安装APP：Xcode
 ***
 
 ## 使用文档
