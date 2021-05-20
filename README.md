@@ -1,7 +1,13 @@
 # HSAddUdids
+
+[![Build Status](https://img.shields.io/badge/Github-HSAddUdids-brightgreen.svg)](https://github.com/HansenCCC/HSAddUdids)
+[![Build Status](https://img.shields.io/badge/platform-shell-orange.svg)](https://github.com/HansenCCC/HSAddUdids)
+[![Build Status](https://img.shields.io/badge/HansenCCC-Github-blue.svg)](https://github.com/HansenCCC)
+[![Build Status](https://img.shields.io/badge/HansenCCC-知乎-lightgrey.svg)](https://www.zhihu.com/people/EngCCC)
+
 超级签名中最重要的一步：跳过双重认证，自动化脚本添加udid并下载描述文件
 
-<img src="https://raw.githubusercontent.com/HansenCCC/HSAddUdids/master/%E6%95%88%E6%9E%9C%E5%9B%BE.png"  width="400">
+<img src="http://i1.fuimg.com/737869/cddf877e0fc27b5e.png"  width="400">
 
 ## 运行环境
 ### 编译系统：苹果Mac
