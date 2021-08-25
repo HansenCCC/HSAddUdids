@@ -7,7 +7,7 @@
 
 超级签名中最重要的一步：跳过双重认证，自动化脚本添加udid并下载描述文件
 
-<img src="http://i1.fuimg.com/737869/cddf877e0fc27b5e.png"  width="400">
+<img src="https://pic3.zhimg.com/80/v2-4b6246b3f4706cfc88043c61595a5446.jpg"  width="600">
 
 ## 运行环境
 ### 编译系统：苹果Mac
